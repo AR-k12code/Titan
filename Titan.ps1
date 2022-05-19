@@ -1,3 +1,10 @@
+<#
+
+Titan Automation Script
+Author: Craig Millsap, https://www.camtechcs.com/automated-students/
+
+#>
+
 Param(
     [Parameter(Mandatory=$false)][switch]$SkipUploadingFiles #Skip Uploading
 )
