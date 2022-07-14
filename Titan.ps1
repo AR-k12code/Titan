@@ -22,7 +22,7 @@ if (-Not(Test-Path $PSScriptRoot\settings.ps1)) {
 
 try {
     if (-Not($SkipUploadingFiles)) {
-        Write-Host "Info: Uploading files to Clever..." -ForegroundColor YELLOW
+        Write-Host "Info: Uploading files to Titan..." -ForegroundColor YELLOW
         $exec = Start-Process -FilePath "$PSScriptRoot\bin\pscp.exe" -ArgumentList "-pw $password -hostkey $hostkey $PSScriptRoot\Titan.csv $($username)@sftp.titank12.com:" -PassThru -Wait -NoNewWindow
     
         if ($exec.ExitCode -ne 0) {
@@ -33,6 +33,6 @@ try {
         Write-Host "Info: You have requested to skip uploading files."
     }
 } catch {
-    write-Host "ERROR: Failed to properly upload files to clever. Exit Code $($exec.ExitCode)" -ForegroundColor RED
+    write-Host "ERROR: Failed to properly upload files to Titan. Exit Code $($exec.ExitCode)" -ForegroundColor RED
     exit(1)
 }
