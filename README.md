@@ -21,3 +21,14 @@ Modify $username and $password to the SFTP credentials provided for your distric
 - CognosDownloader installed using te suggested install process
 - Git
 - Task Scheduler must run as the same user you used to save your eSchool/Cognos password.
+
+## Scheduling Task
+This must be done using the account you used to save your encrypted Cognos password.
+
+* Open Task Scheduler
+* New Basic Task
+* Name it, Daily (or more), Set Time. (Please choose an offset on minutes like 8:23am)
+* Action: Start a Program.
+    * Program/script = "c:\Program Files\PowerShell\7\pwsh.exe"
+    * Add arguments = "-ExecutionPolicy bypass -File c:\scripts\Titan\titan.ps1"
+    * Start in = "c:\scripts\titan"
