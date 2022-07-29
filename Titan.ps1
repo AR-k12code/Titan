@@ -6,7 +6,7 @@ Author: Craig Millsap, https://www.camtechcs.com/automated-students/
 #>
 
 Param(
-    [Parameter(Mandatory=$false)][switch]$SkipUploadingFiles #Skip Uploading
+    [Parameter(Mandatory=$false)][switch]$SkipUploadingFiles, #Skip Uploading
     [Parameter(Mandatory=$false)][switch]$LockerCode #Pulls Titan_Locker_Serving_number
 )
 
