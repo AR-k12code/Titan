@@ -7,6 +7,7 @@ Author: Craig Millsap, https://www.camtechcs.com/automated-students/
 
 Param(
     [Parameter(Mandatory=$false)][switch]$SkipUploadingFiles #Skip Uploading
+    [Parameter(Mandatory=$false)][switch]$LockerCode #Pulls Titan_Locker_Serving_number
 )
 
 $hostkey = '81:f6:c8:85:a7:a7:23:9f:71:32:bc:dd:03:ff:10:8c'
@@ -17,9 +18,11 @@ if (-Not(Test-Path $PSScriptRoot\settings.ps1)) {
 } else {
     . $PSScriptRoot\settings.ps1
 }
-
+if ($LockerCode){
+& ..\CognosDownload.ps1 -report Titan_Locker_serving_number -cognosfolder "_Shared Data File Reports" -TeamContent -TrimCSVWhiteSpace -savepath $PSScriptRoot
+}else{
 & ..\CognosDownload.ps1 -report Titan -cognosfolder "_Shared Data File Reports" -TeamContent -TrimCSVWhiteSpace -savepath $PSScriptRoot
-
+}
 try {
     if (-Not($SkipUploadingFiles)) {
         Write-Host "Info: Uploading files to Titan..." -ForegroundColor YELLOW
