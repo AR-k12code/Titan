@@ -19,9 +19,9 @@ if (-Not(Test-Path $PSScriptRoot\settings.ps1)) {
     . $PSScriptRoot\settings.ps1
 }
 if ($LockerCode){
-& ..\CognosDownload.ps1 -report Titan_Locker_serving_number -cognosfolder "_Shared Data File Reports" -TeamContent -TrimCSVWhiteSpace -savepath $PSScriptRoot -fileName 'Titan.csv'
+Save-CognosReport -report "Titan_Locker_serving_number" -cognosfolder "_Shared Data File Reports" -TeamContent -savepath $PSScriptRoot
 }else{
-& ..\CognosDownload.ps1 -report Titan -cognosfolder "_Shared Data File Reports" -TeamContent -TrimCSVWhiteSpace -savepath $PSScriptRoot
+Save-CognosReport -report "Titan" -cognosfolder "_Shared Data File Reports" -TeamContent -savepath $PSScriptRoot
 }
 try {
     if (-Not($SkipUploadingFiles)) {
